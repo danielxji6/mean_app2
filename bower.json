@@ -1,0 +1,23 @@
+{
+  "name": "mean_app2",
+  "description": "",
+  "main": "server.js",
+  "authors": [
+    "danielxji6 <danielxji6@gmail.com>"
+  ],
+  "license": "ISC",
+  "moduleType": [],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "AngularJS": "angulerjs#^1.5.0",
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.2.0"
+  }
+}
