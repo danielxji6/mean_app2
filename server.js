@@ -11,6 +11,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // serve static files from public folder
 app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/bower_components'));
 
 // set view engine to hbs (handlebars)
 app.set('view engine', 'hbs');
@@ -61,5 +62,5 @@ app.get('/*', function render_index(req, res) {
 
 // Listen
 app.listen(3000, function() {
-  console.log('server started');
+  console.log('server started', 'http://localhost:3000/');
 });
