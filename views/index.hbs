@@ -1,26 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, nitial-scale=1">
-    <base href="/">
+<html lang="en" data-ng-add="AlbumApp">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <base href="/">
 
-    <!-- Bower Components -->
-    <link type="text/css" rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-    <script src="bower_components/jquery/dist/jquery.min.js"></script>
-    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="bower_components/angular/angular.js"></script>
-    <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
-    <script src="bower_components/angular-resource/angular-resource.min.js"></script>
-    <!-- APP CSS -->
-    <link rel="stylesheet" href="public/stylesheets/styles.css">
-    <!-- App JS -->
-    <script src="public/javascripts/app.js"></script>
+  <!-- jquery -->
+  <script type="text/javascript" src="jquery/dist/jquery.min.js"></script>
 
-    <title>MEAN App 2</title>
-  </head>
-  <body>
-    <nav class="navbar navbar-default">
+  <!-- angular -->
+  <script type="text/javascript" src="angular/angular.js"></script>
+
+  <!-- ui router -->
+  <script type="text/javascript" src="angular-ui-router/release/angular-ui-router.min.js"></script>
+
+  <!-- ngResource -->
+  <script type="text/javascript" src="angular-resource/angular-resource.min.js"></script>
+
+  <!-- custom script (angular app) -->
+  <script type="text/javascript" src="javascripts/app.js"></script>
+
+  <!-- bootstrap -->
+  <link type="text/css" rel="stylesheet" href="bootstrap/dist/css/bootstrap.min.css">
+  <script type="text/javascript" src="bootstrap/dist/js/bootstrap.min.js"></script>
+
+  <!-- custom styles -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/styles.css">
+
+
+
+  <title>MEAN App 2</title>
+</head>
+
+<body>
+  <nav class="navbar navbar-default">
     <div class="container-fluid">
       <!-- Brand and toggle get grouped for better mobile display -->
       <div class="navbar-header">
@@ -31,18 +44,22 @@
           <span class="icon-bar"></span>
         </button>
         <a class="navbar-brand" ui-sref="books-index">MEAN</a>
-      </div><!-- /.navbar-collapse -->
+      </div>
+      <!-- /.navbar-collapse -->
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           <li><a ui-sref="home">Home</a></li>
         </ul>
-    </div><!-- /.container-fluid -->
-    </nav>
-
-    <div class="container">
-      <ui-view>
+      </div>
+      <!-- /.container-fluid -->
     </div>
-    
-  </body>
+  </nav>
+
+  <div class="container">
+    <div ui-view></div>
+  </div>
+
+</body>
+
 </html>
