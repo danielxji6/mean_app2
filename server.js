@@ -17,7 +17,7 @@ app.set('view engine', 'hbs');
 
 
 /*********
-ROUTES
+API ROUTES
 **********/
 
 app.get('/api', function api_index(req, res) {
@@ -51,9 +51,13 @@ app.get('/api/albums/:album_id/songs/:id');
 
 app.delete("/api/albums/:album_id/songs/:id");
 
+/*********
+END POINT
+**********/
 
-
-
+app.get('/*', function render_index(req, res) {
+  res.render('index');
+});
 
 // Listen
 app.listen(3000, function() {
