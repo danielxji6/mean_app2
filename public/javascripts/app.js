@@ -5,10 +5,9 @@ angular
   .controller('AlbumIndexController', AlbumIndexController);
 
 
-
 config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
-
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
+  console.log('config');
   $locationProvider.html5Mode({
     enable: true,
     requireBase: false,
@@ -19,8 +18,9 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'template/albums/index.html',
-      controller: 'AlbumIndexController as index'
+      templateUrl: 'templates/albums/index.html',
+      controller: 'AlbumIndexController',
+      controllerAs: 'index',
     });
 
 }
@@ -28,14 +28,19 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
 
 AlbumFactory.$inject = ['$resource'];
 function AlbumFactory($resource) {
-  return $resource('/api/albums/:id', { _id: '@id'}, {
-    'update': { method: 'PUT' }
+  console.log('factory');
+  return $resource('/api/albums/:id', { id: '@_id'}, {
+    'update': { method: 'PUT' },
   });
 }
 
 
 AlbumIndexController.$inject = ['AlbumFactory'];
 function AlbumIndexController(AlbumFactory) {
+  console.log('controller');
   var vm = this;
   vm.albums = AlbumFactory.query();
+  console.log("ngR",vm.albums);
 }
+
+console.log("add.jd loaded");

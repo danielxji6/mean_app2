@@ -4,6 +4,7 @@
 var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
 var db = require('./models');
 
 // configure bodyParser (for receiving form data)
@@ -34,6 +35,7 @@ app.get('/api', function api_index(req, res) {
 app.get('/api/albums', function api_get_albums() {
   db.Album.find({}, function(err, albums) {
     if(err) { return console.log("ERROR: ", err);}
+    console.log("to albums");
     res.json(albums);
   });
 });
