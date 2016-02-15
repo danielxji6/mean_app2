@@ -32,7 +32,7 @@ app.get('/api', function api_index(req, res) {
   });
 });
 
-app.get('/api/albums', function api_get_albums() {
+app.get('/api/albums', function api_get_albums(req, res) {
   db.Album.find({}, function(err, albums) {
     if(err) { return console.log("ERROR: ", err);}
     console.log("to albums");
@@ -59,7 +59,6 @@ END POINT
 **********/
 
 app.get('/*', function render_index(req, res) {
-  console.log("serving index");
   res.render('index');
 });
 

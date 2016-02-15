@@ -8,8 +8,8 @@ angular
 // config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
   $locationProvider.html5Mode({
-    enable: true,
-    requireBase: false,
+    enabled: true,
+    requireBase: false
   });
 
   $urlRouterProvider.otherwise('/');
@@ -37,4 +37,22 @@ function AlbumFactory($resource) {
 function AlbumIndexController(AlbumFactory) {
   var vm = this;
   vm.albums = AlbumFactory.query();
+  vm.newAlbum = {};
+
+  vm.createAlbum = function() {
+    vm.newAlbum = AlbumFactory.save(vm.newAlbum);
+    vm.albums.unshift(vm.newAlbum);
+    vm.newAlbum = {};
+  };
+
+  vm.updateAlbum = function(album) {
+    AlbumFactory.update(album);
+    album.editForm = false;
+  };
+
+  vm.deleteAlbum = function(album) {
+    AlbumFactory.delete({id: album._id});
+    var albumIndex = vm.albums.indexOf(album);
+    vm.albums.splice(albumIndex, 1);
+  };
 }

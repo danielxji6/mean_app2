@@ -1,12 +1,11 @@
-<div class="row">
+<div>
+  <h3>Album List</h3>
+</div>
+<div class="row" data-ng-repeat="album in index.albums">
   <div class="col-md-10 col-md-offset-1">
-    <div data-ng-if="index.albums.length > 0">
-      <hr>
-      <div class="panel-heading">
-        <h3 class="panel-title">Album List</h3>
-      </div>
-      <div class="panel panel-default">
-        <div class="row" data-ng-repeat="album in index.albums">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <div class="row">
           <!-- One album -->
           <div class='col-md-3 col-xs-12 thumbnail album-art'>
             <img src="http://placehold.it/400x400" alt='album image'>
@@ -23,11 +22,11 @@
               </li>
               <li class='list-group-item'>
                 <h4 class='inline-header'>Released date:</h4>
-                <span class='album-releaseDate'>{{album.releaseDate}}</span>
+                <span class='album-releaseDate'>{{album.releaseDate | date:'yyyy-MM'}}</span>
               </li>
             </ul>
           </div>
-        </div> <!-- End of repeat -->
+        </div>
       </div>
     </div>
   </div>
