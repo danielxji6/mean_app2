@@ -1,13 +1,12 @@
 angular
-  .module('AlbumApp', ['ui.router', 'ngResource'])
+  .module('albumApp', ['ui.router', 'ngResource'])
   .config(config)
   .factory('AlbumFactory', AlbumFactory)
   .controller('AlbumIndexController', AlbumIndexController);
 
 
-config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
+// config.$inject = ['$stateProvider', '$urlRouterProvider', '$locationProvider'];
 function config($stateProvider, $urlRouterProvider, $locationProvider) {
-  console.log('config');
   $locationProvider.html5Mode({
     enable: true,
     requireBase: false,
@@ -26,21 +25,16 @@ function config($stateProvider, $urlRouterProvider, $locationProvider) {
 }
 
 
-AlbumFactory.$inject = ['$resource'];
+// AlbumFactory.$inject = ['$resource'];
 function AlbumFactory($resource) {
-  console.log('factory');
   return $resource('/api/albums/:id', { id: '@_id'}, {
     'update': { method: 'PUT' },
   });
 }
 
 
-AlbumIndexController.$inject = ['AlbumFactory'];
+// AlbumIndexController.$inject = ['AlbumFactory'];
 function AlbumIndexController(AlbumFactory) {
-  console.log('controller');
   var vm = this;
   vm.albums = AlbumFactory.query();
-  console.log("ngR",vm.albums);
 }
-
-console.log("add.jd loaded");

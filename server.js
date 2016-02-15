@@ -59,6 +59,7 @@ END POINT
 **********/
 
 app.get('/*', function render_index(req, res) {
+  console.log("serving index");
   res.render('index');
 });
 
